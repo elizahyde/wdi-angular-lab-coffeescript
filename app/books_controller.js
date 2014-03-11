@@ -3,24 +3,22 @@ var bookly = bookly || {};
 bookly.bookApp = angular.module("bookApp", []);
 
 bookly.BooksController = function($scope) {
-  // load books. They are defined in data.js (we've got no back end yet!)
   $scope.books = books;
-
   $scope.cart = [];
-
-  //Code to manage cart goes here
-
+  $scope.total = 0;
   // Add book to cart
   $scope.addItem = function( book ) {
     $scope.cart.push(book);
+    // Breaks pluralize but fixes JS error
+    // $scope.cart = _.uniq($scope.cart);
+
+    // Get total cost
+    $scope.total += book.price;
   };
 
-  $scope.totalCartValue = function() {
-     // Insert math here
-  }
-
   $scope.emptyCart = function() {
-    // Empty the cart
-  }
+    $scope.cart = 0;
+    $scope.total = 0;
+  };
 
 };
