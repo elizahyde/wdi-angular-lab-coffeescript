@@ -8,7 +8,7 @@
 
   <link href="main.css" rel="stylesheet" type="text/css" />
   <script src ="data.js"></script>
-  <script src ="books_controller.js"></script>
+  <script src ="books_coffee_controller.js"></script>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
         </div>
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 cart">
           <h3>
-            <ng-pluralize count="cart.length"
+            <ng-pluralize count="num_books_in_cart"
                         when="{'0': 'You have no items in your cart.',
                                'one': 'You have one item in your cart.',
                                'other': 'You have {} items in your cart.'}">
@@ -49,12 +49,14 @@
 
           <table class="carttable">
           <tr>
-            <th width='40%'>Title</th><th width='40%'>Author</th><th width='20%'>Price</th>
+            <th width='30%'>Title</th><th width='25%'>Author</th><th width='10%'>Qty</th><th width='20%'> Unit Price</th><th width='20%'> Price</th>
           </tr>
           <tr ng-repeat="book in cart">
             <td>{{book.title}}</td>
             <td>{{book.author}}</td>
+            <td>{{quantity[book.id]}}</td>
             <td>{{book.price | currency}}</td>
+            <td>{{ quantity[book.id] * book.price | currency}}</td>
           </tr>
           <tr class="cart-total">
             <td colspan=2 width='80%'>Total</td><td width='20%'> {{ total | currency }} </td>
