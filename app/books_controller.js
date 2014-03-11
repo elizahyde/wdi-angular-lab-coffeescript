@@ -17,7 +17,7 @@ bookly.BooksController = function($scope) {
   };
 
   $scope.emptyCart = function() {
-    $scope.cart = 0;
+    $scope.cart = [];
     $scope.total = 0;
   };
 
