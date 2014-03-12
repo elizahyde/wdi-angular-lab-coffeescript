@@ -23,12 +23,9 @@ bookly.BooksController = function($scope) {
     }
     $scope.num_books_in_cart += 1;
     $scope.total += book.price;
-    return true;
   };
   $scope.emptyCart = function() {
     $scope.cart = [];
     $scope.total = 0;
-    return true;
   };
-  return true;
 };

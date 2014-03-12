@@ -20,10 +20,10 @@ bookly.BooksController = ($scope) ->
 
     $scope.num_books_in_cart += 1
     $scope.total += book.price
-    true
+    return
 
   $scope.emptyCart = () ->
     $scope.cart = []
     $scope.total = 0
-    true
-  true
+    return
+  return
